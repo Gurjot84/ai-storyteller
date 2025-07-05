@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .container { max-width: 600px; margin: auto; }
+        textarea { width: 100%; height: 100px; margin-bottom: 10px; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .story, .error { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>AI Story Generator</h1>
+    <div class="container">
+        <form method="POST">
+            <textarea name="prompt" placeholder="Enter a story prompt (e.g., A time traveler visits ancient Egypt)"></textarea>
+            <button type="submit">Generate Story</button>
+        </form>
+        {% if story %}
+        <div class="story">
+            <h2>Generated Story</h2>
+            <p>{{ story }}</p>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
